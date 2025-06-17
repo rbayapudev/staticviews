@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUI Basic Single Page Example</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script src="https://unpkg.com/@emotion/react@latest/dist/emotion-react.umd.min.js"></script>
+    <script src="https://unpkg.com/@emotion/styled@latest/dist/emotion-styled.umd.min.js"></script>
+    <script src="https://unpkg.com/@mui/material@latest/dist/mui-material.umd.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+        #root {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const {
+            Button,
+            Typography,
+            CssBaseline,
+            createTheme,
+            ThemeProvider,
+            Box
+        } = MaterialUI;
+
+        // Create a basic Material-UI theme
+        const theme = createTheme({
+            palette: {
+                primary: {
+                    main: '#1976d2',
+                },
+                secondary: {
+                    main: '#dc004e',
+                },
+            },
+        });
+
+        function App() {
+            return (
+                <ThemeProvider theme={theme}>
+                    <CssBaseline /> {/* Resets CSS to a consistent baseline */}
+                    <Box
+                        sx={{
+                            my: 4,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}
+                    >
+                        <Typography variant="h4" component="h1" gutterBottom>
+                            Welcome to MUI!
+                        </Typography>
+                        <Button variant="contained" color="primary" onClick={() => alert('Button Clicked!')}>
+                            Click Me
+                        </Button>
+                        <Typography variant="body1" sx={{ mt: 2 }}>
+                            This is a basic single-page example using Material-UI components.
+                        </Typography>
+                    </Box>
+                </ThemeProvider>
+            );
+        }
+
+        // Render the React component into the root div
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone@latest/babel.min.js"></script>
+</body>
+</html>
